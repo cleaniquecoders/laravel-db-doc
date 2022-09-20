@@ -10,6 +10,11 @@ class Processor
 {
     protected array $data;
 
+    protected $schema;
+    protected $tables;
+    protected $connection;
+    protected $database_connection;
+    
     protected string $presenter;
 
     public function __construct()
@@ -43,15 +48,15 @@ class Processor
             ->write();
     }
 
-    public function connect(string $connection, string $format): self
+    public function connect(string $database_connection, string $format): self
     {
-        $this->database_connection = $connection;
+        $this->database_connection = $database_connection;
         $this->presenter = config('db-doc.presentations.'.$format.'.class');
 
         throw_if(! class_exists($this->presenter), 'RuntimeException', "$this->presenter not exists.");
 
         $this->connection = DB::connection($this->database_connection)->getDoctrineConnection();
-        $this->schema = $this->connection->getSchemaManager();
+        $this->schema = $this->connection->createSchemaManager();
         $this->tables = $this->schema->listTableNames();
 
         return $this;

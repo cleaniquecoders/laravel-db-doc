@@ -32,7 +32,7 @@ class LaravelDbDoc
         }
     }
 
-    public function content($format)
+    public static function content($format)
     {
         throw_if(! in_array($format, ['json', 'markdown']));
 

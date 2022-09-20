@@ -2,8 +2,12 @@
 
 namespace Bekwoh\LaravelDbDoc\Data;
 
+use Illuminate\Support\Collection;
+
 class Schema
 {
+    protected Collection $collections;
+
     public function __construct(protected $tables, protected $schema)
     {
     }
@@ -18,7 +22,7 @@ class Schema
         $tables = $this->tables;
         $schema = $this->schema;
 
-        $this->collections = [];
+        $this->collections = collect();
         foreach ($tables as $table) {
             $columns = $schema->listTableColumns($table);
             $foreignKeys = collect($schema->listTableForeignKeys($table))->keyBy(function ($foreignColumn) {
@@ -45,7 +49,7 @@ class Schema
             }
         }
 
-        return $this->collections;
+        return $this->collections->toArray();
     }
 
     private function determineUnsigned($column)
