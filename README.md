@@ -5,15 +5,11 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/bekwoh/laravel-db-doc/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/bekwoh/laravel-db-doc/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/bekwoh/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/bekwoh/laravel-db-doc)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+A package to provide you easy way to generate Markdown / JSON format of database schema. Viewable in non-production environment at your `http://domain.com/doc/db-schema`.
 
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/laravel-db-doc.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/laravel-db-doc)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+<p align="center">
+  <img src="screenshot.png" />
+</p>
 
 ## Installation
 
