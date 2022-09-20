@@ -2,6 +2,7 @@
 
 namespace Bekwoh\LaravelDbDoc\Presentation;
 
+use Bekwoh\LaravelDbDoc\Facades\LaravelDbDoc;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -13,7 +14,12 @@ class Markdown
 
     public function getDisk()
     {
-        return config('db-doc.presentations.json.disk');
+        return LaravelDbDoc::disk('markdown');
+    }
+
+    public function getFilename()
+    {
+        return LaravelDbDoc::filename('markdown');
     }
 
     public function getContents()
@@ -55,7 +61,7 @@ class Markdown
     private function getStub()
     {
         return file_get_contents(
-            base_path('stubs/db-dock.stub')
+            base_path('stubs/db-doc.stub')
         );
     }
 
@@ -63,8 +69,14 @@ class Markdown
     {
         Storage::disk($this->getDisk())
             ->put(
-                config('app.name').' Database Schema.md',
+                $this->getFilename(),
                 $this->getContents()
             );
+    }
+
+    public function read()
+    {
+        return Storage::disk($this->getDisk())
+            ->get($this->getFilename());
     }
 }

@@ -19,7 +19,6 @@ class LaravelDbDocServiceProvider extends PackageServiceProvider
             ->name('laravel-db-doc')
             ->hasConfigFile()
             ->hasViews()
-            ->hasMigration('create_laravel-db-doc_table')
             ->hasCommand(LaravelDbDocCommand::class);
     }
 }

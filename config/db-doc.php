@@ -11,10 +11,12 @@ return [
         'markdown' => [
             'class' => Markdown::class,
             'disk' => 'local',
+            'view' => 'db-doc::markdown'
         ],
         'json' => [
             'class' => Json::class,
             'disk' => 'local',
+            'view' => null,
         ],
     ],
 ];
