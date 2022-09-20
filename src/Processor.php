@@ -11,10 +11,13 @@ class Processor
     protected array $data;
 
     protected $schema;
+
     protected $tables;
+
     protected $connection;
+
     protected $database_connection;
-    
+
     protected string $presenter;
 
     public function __construct()
