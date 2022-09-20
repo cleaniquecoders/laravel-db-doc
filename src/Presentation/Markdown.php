@@ -2,26 +2,11 @@
 
 namespace Bekwoh\LaravelDbDoc\Presentation;
 
-use Bekwoh\LaravelDbDoc\Facades\LaravelDbDoc;
-use Illuminate\Support\Facades\Storage;
+use Bekwoh\LaravelDbDoc\Contracts\Presenter;
 use Illuminate\Support\Str;
 
-class Markdown
+class Markdown extends AbstractPresenter implements Presenter
 {
-    public function __construct(protected array $contents)
-    {
-    }
-
-    public function getDisk()
-    {
-        return LaravelDbDoc::disk('markdown');
-    }
-
-    public function getFilename()
-    {
-        return LaravelDbDoc::filename('markdown');
-    }
-
     public function getContents()
     {
         $contents = $this->contents;
@@ -56,27 +41,5 @@ class Markdown
             $this->database_connection, $host, $port, $database_config['database'],
             $schema,
         ], $stub);
-    }
-
-    private function getStub()
-    {
-        return file_get_contents(
-            base_path('stubs/db-doc.stub')
-        );
-    }
-
-    public function write()
-    {
-        Storage::disk($this->getDisk())
-            ->put(
-                $this->getFilename(),
-                $this->getContents()
-            );
-    }
-
-    public function read()
-    {
-        return Storage::disk($this->getDisk())
-            ->get($this->getFilename());
     }
 }
