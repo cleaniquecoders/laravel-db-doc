@@ -11,7 +11,7 @@ return [
         'markdown' => [
             'class' => Markdown::class,
             'disk' => 'local',
-            'view' => 'db-doc::markdown'
+            'view' => 'db-doc::markdown',
         ],
         'json' => [
             'class' => Json::class,
