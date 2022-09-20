@@ -15,7 +15,6 @@ class LaravelDbDoc
                 $format = request()->query('format', 'markdown');
 
                 $filename = self::filename($format);
-                $view = self::view($format);
                 $content = self::content($format);
 
                 $filepath = config('database.doc_schema_path').DIRECTORY_SEPARATOR.$filename;
@@ -28,7 +27,7 @@ class LaravelDbDoc
                     ]);
                 }
 
-                return view('db-doc::markdown', [
+                return view('laravel-db-doc::markdown', [
                     'content' => Str::markdown(
                         $content
                     ),
