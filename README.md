@@ -27,20 +27,12 @@ You can publish and run the migrations with:
 
 ```bash
 php artisan vendor:publish --tag="laravel-db-doc-migrations"
-php artisan migrate
 ```
 
 You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="laravel-db-doc-config"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
 ```
 
 Optionally, you can publish the views using
@@ -51,9 +43,29 @@ php artisan vendor:publish --tag="laravel-db-doc-views"
 
 ## Usage
 
+To generate database schema in Markdown format:
+
 ```php
-$laravelDbDoc = new Bekwoh\LaravelDbDoc();
-echo $laravelDbDoc->echoPhrase('Hello, Bekwoh!');
+php artisan db:schema 
+```
+
+To generate database schema in JSON format:
+
+```php
+php artisan db:schema --format=json
+```
+
+To generate database schema for specific connection:
+
+```php
+php artisan db:schema --database=sqlite
+```
+
+To generate output to specific storage, add in `.env`:
+
+```bash
+LARAVEL_DB_DOC_MARKDOWN_DISK=s3
+LARAVEL_DB_DOC_JSON_DISK=s3
 ```
 
 ## Testing
