@@ -10,7 +10,7 @@ class Json extends AbstractPresenter implements Presenter
     {
         return new self($contents);
     }
-    
+
     public function getContents()
     {
         return json_encode($this->contents, JSON_PRETTY_PRINT);

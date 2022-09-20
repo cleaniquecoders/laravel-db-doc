@@ -2,7 +2,6 @@
 
 namespace Bekwoh\LaravelDbDoc;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;

@@ -11,7 +11,7 @@ it('has db:schema command', function () {
 
 it('can generate db doc schema - markdown', function () {
     Artisan::call('db:schema');
-    
+
     $this->assertTrue(
         Storage::disk(LaravelDbDoc::disk('markdown'))
             ->exists(LaravelDbDoc::filename('markdown'))
@@ -20,7 +20,7 @@ it('can generate db doc schema - markdown', function () {
 
 it('can generate db doc schema - json', function () {
     Artisan::call('db:schema --format=json');
-    
+
     $this->assertTrue(
         Storage::disk(LaravelDbDoc::disk('json'))
             ->exists(LaravelDbDoc::filename('json'))

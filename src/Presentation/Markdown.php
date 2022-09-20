@@ -11,7 +11,7 @@ class Markdown extends AbstractPresenter implements Presenter
     {
         return new self($contents);
     }
-    
+
     public function getContents()
     {
         $contents = $this->contents;

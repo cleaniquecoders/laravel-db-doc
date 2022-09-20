@@ -30,7 +30,7 @@ abstract class AbstractPresenter implements Presenter
     {
         $path = file_exists(
             base_path('stubs/db-doc.stub')
-        ) ? base_path('stubs/db-doc.stub') : __DIR__ . '/../../stubs/db-doc.stub';
+        ) ? base_path('stubs/db-doc.stub') : __DIR__.'/../../stubs/db-doc.stub';
 
         return file_get_contents($path);
     }
