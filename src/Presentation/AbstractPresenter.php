@@ -5,7 +5,6 @@ namespace Bekwoh\LaravelDbDoc\Presentation;
 use Bekwoh\LaravelDbDoc\Contracts\Presenter;
 use Bekwoh\LaravelDbDoc\Facades\LaravelDbDoc;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 abstract class AbstractPresenter implements Presenter
 {
@@ -17,12 +16,12 @@ abstract class AbstractPresenter implements Presenter
 
     public function getDisk()
     {
-        return LaravelDbDoc::disk(strtolower(basename(__CLASS__));
+        return LaravelDbDoc::disk(strtolower(basename(__CLASS__)));
     }
 
     public function getFilename()
     {
-        return LaravelDbDoc::filename(strtolower(basename(__CLASS__));
+        return LaravelDbDoc::filename(strtolower(basename(__CLASS__)));
     }
 
     public function getStub()
