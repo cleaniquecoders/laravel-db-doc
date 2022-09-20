@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 class Processor
 {
     protected array $data;
+
     protected Presenter $presenter;
 
     public function __construct()
