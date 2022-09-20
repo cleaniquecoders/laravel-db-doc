@@ -7,6 +7,11 @@ use Illuminate\Support\Str;
 
 class Markdown extends AbstractPresenter implements Presenter
 {
+    public static function make(array $contents): self
+    {
+        return new self($contents);
+    }
+    
     public function getContents()
     {
         $contents = $this->contents;
@@ -28,7 +33,7 @@ class Markdown extends AbstractPresenter implements Presenter
 
         $schema = implode('', $output);
         $stub = $this->getStub();
-        $database_config = config('database.connections.'.$this->database_connection);
+        $database_config = config('database.connections.'.$this->connection);
         $host = isset($database_config['host']) ? $database_config['host'] : null;
         $port = isset($database_config['port']) ? $database_config['port'] : null;
 
@@ -38,7 +43,7 @@ class Markdown extends AbstractPresenter implements Presenter
             'SCHEMA_CONTENT',
         ], [
             config('app.name'),
-            $this->database_connection, $host, $port, $database_config['database'],
+            $this->connection, $host, $port, $database_config['database'],
             $schema,
         ], $stub);
     }

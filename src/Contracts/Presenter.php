@@ -17,4 +17,6 @@ interface Presenter
     public function write();
 
     public function read();
+
+    public function connection(string $connection): self;
 }

@@ -3,6 +3,7 @@
 namespace Bekwoh\LaravelDbDoc;
 
 use Bekwoh\LaravelDbDoc\Commands\LaravelDbDocCommand;
+use Bekwoh\LaravelDbDoc\Facades\LaravelDbDoc;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,5 +21,10 @@ class LaravelDbDocServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews()
             ->hasCommand(LaravelDbDocCommand::class);
+    }
+
+    public function bootingPackage()
+    {
+        LaravelDbDoc::routes();
     }
 }

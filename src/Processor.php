@@ -10,7 +10,7 @@ class Processor
 {
     protected array $data;
 
-    protected Presenter $presenter;
+    protected string $presenter;
 
     public function __construct()
     {
@@ -36,7 +36,11 @@ class Processor
 
     public function render()
     {
-        $this->presenter::make($this->data)->write();
+        throw_if(! in_array(Presenter::class, class_implements($this->presenter)));
+
+        $this->presenter::make($this->data)
+            ->connection($this->database_connection)
+            ->write();
     }
 
     public function connect(string $connection, string $format): self
@@ -44,7 +48,7 @@ class Processor
         $this->database_connection = $connection;
         $this->presenter = config('db-doc.presentations.'.$format.'.class');
 
-        throw_if(! class_exists($this->format), 'RuntimeException', "$this->format not exists.");
+        throw_if(! class_exists($this->presenter), 'RuntimeException', "$this->presenter not exists.");
 
         $this->connection = DB::connection($this->database_connection)->getDoctrineConnection();
         $this->schema = $this->connection->getSchemaManager();

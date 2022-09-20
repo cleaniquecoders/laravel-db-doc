@@ -2,6 +2,7 @@
 
 namespace Bekwoh\LaravelDbDoc;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -12,14 +13,10 @@ class LaravelDbDoc
     {
         if (app()->environment() != 'production') {
             Route::get('doc/db-schema', function () {
+                // Todo: define role
+
                 $format = request()->query('format', 'markdown');
-
-                $filename = self::filename($format);
                 $content = self::content($format);
-
-                $filepath = config('database.doc_schema_path').DIRECTORY_SEPARATOR.$filename;
-
-                abort_if(! file_exists($filepath), 404, 'Database schema document not yet generated. Do run php artisan db:schema to generate the schema document.');
 
                 if ($format == 'json') {
                     return response()->json([
@@ -32,7 +29,7 @@ class LaravelDbDoc
                         $content
                     ),
                 ]);
-            });
+            })->middleware('auth', 'verified')->name('doc.db-schema');
         }
     }
 
@@ -57,12 +54,5 @@ class LaravelDbDoc
         $extension = $format != 'markdown' ? 'json' : 'md';
 
         return config('app.name')." Database Schema.$extension";
-    }
-
-    public static function view($format)
-    {
-        throw_if(! in_array($format, ['json', 'markdown']));
-
-        return config("db-doc.presentations.$format.view");
     }
 }

@@ -12,7 +12,7 @@ class LaravelDbDocCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'db:schema {--database=} {--format=md} {--path=} {--emoji}';
+    protected $signature = 'db:schema {--database=} {--format=markdown}';
 
     /**
      * The console command description.
