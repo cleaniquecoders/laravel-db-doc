@@ -4,6 +4,8 @@ namespace Bekwoh\LaravelDbDoc\Contracts;
 
 interface Presenter
 {
+    public static function make(array $contents): self;
+    
     public function getDisk();
 
     public function getFilename();

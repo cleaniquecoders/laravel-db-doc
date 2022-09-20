@@ -14,6 +14,11 @@ abstract class AbstractPresenter implements Presenter
     {
     }
 
+    public static function make(array $contents): self
+    {
+        return new self($contents);
+    }
+
     public function getDisk()
     {
         return LaravelDbDoc::disk(strtolower(basename(__CLASS__)));

@@ -2,12 +2,14 @@
 
 namespace Bekwoh\LaravelDbDoc;
 
+use Bekwoh\LaravelDbDoc\Contracts\Presenter;
 use Bekwoh\LaravelDbDoc\Data\Schema;
 use Illuminate\Support\Facades\DB;
 
 class Processor
 {
     protected array $data;
+    protected Presenter $presenter;
 
     public function __construct()
     {
@@ -27,16 +29,19 @@ class Processor
     public function process()
     {
         $this->data = Schema::make($this->tables, $this->schema)->getData();
+
+        return $this;
     }
 
     public function render()
     {
+        $this->presenter::make($this->data)->write();
     }
 
     public function connect(string $connection, string $format): self
     {
         $this->database_connection = $connection;
-        $this->format = config('db-doc.presentations.'.$format.'.class');
+        $this->presenter = config('db-doc.presentations.'.$format.'.class');
 
         throw_if(! class_exists($this->format), 'RuntimeException', "$this->format not exists.");
 
