@@ -1,12 +1,11 @@
-<?php 
+<?php
 
 namespace Bekwoh\LaravelDbDoc\Data;
 
-class Schema 
+class Schema
 {
     public function __construct(protected $tables, protected $schema)
     {
-        
     }
 
     public static function make($tables, $schema)
@@ -25,19 +24,19 @@ class Schema
             $foreignKeys = collect($schema->listTableForeignKeys($table))->keyBy(function ($foreignColumn) {
                 return $foreignColumn->getLocalColumns()[0];
             });
-            
+
             foreach ($columns as $column) {
                 $columnName = $column->getName();
                 $columnType = $column->getType()->getName();
                 if (isset($foreignKeys[$columnName])) {
                     $foreignColumn = $foreignKeys[$columnName];
                     $foreignTable = $foreignColumn->getForeignTableName();
-                    $columnType = 'FK -> ' . $foreignTable;
+                    $columnType = 'FK -> '.$foreignTable;
                 }
                 $length = $column->getLength();
 
                 $details['column'] = $columnName;
-                $details['type'] = $columnType . $this->determineUnsigned($column);
+                $details['type'] = $columnType.$this->determineUnsigned($column);
                 $details['length'] = $length != 0 ? $length : null;
                 $details['default'] = $this->getDefaultValue($column);
                 $details['nullable'] = $this->getExpression(true === ! $column->getNotNull());

@@ -2,9 +2,9 @@
 
 namespace Bekwoh\LaravelDbDoc;
 
+use Bekwoh\LaravelDbDoc\Commands\LaravelDbDocCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Bekwoh\LaravelDbDoc\Commands\LaravelDbDocCommand;
 
 class LaravelDbDocServiceProvider extends PackageServiceProvider
 {

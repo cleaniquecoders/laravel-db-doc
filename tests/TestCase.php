@@ -2,9 +2,9 @@
 
 namespace Bekwoh\LaravelDbDoc\Tests;
 
+use Bekwoh\LaravelDbDoc\LaravelDbDocServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Bekwoh\LaravelDbDoc\LaravelDbDocServiceProvider;
 
 class TestCase extends Orchestra
 {

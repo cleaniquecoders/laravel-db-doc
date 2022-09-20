@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Bekwoh\LaravelDbDoc\Presentation;
 
@@ -9,7 +9,6 @@ class Markdown
 {
     public function __construct(protected array $contents)
     {
-        
     }
 
     public function getDisk()
@@ -23,33 +22,34 @@ class Markdown
         $output = [];
         foreach ($contents as $table => $properties) {
             $table = preg_replace('/[^A-Za-z0-9]/', ' ', $table);
-            $output[] = '### ' . Str::title($table) . PHP_EOL . PHP_EOL;
-            $output[] = '| Column | Type | Length | Default | Nullable | Comment |' . PHP_EOL;
-            $output[] = '|--------|------|--------|---------|----------|---------|' . PHP_EOL;
+            $output[] = '### '.Str::title($table).PHP_EOL.PHP_EOL;
+            $output[] = '| Column | Type | Length | Default | Nullable | Comment |'.PHP_EOL;
+            $output[] = '|--------|------|--------|---------|----------|---------|'.PHP_EOL;
             foreach ($properties as $key => $value) {
                 $fields = [];
                 foreach ($value as $k => $v) {
                     $fields[] = "{$v}";
                 }
-                $output[] = '| ' . join(' | ', $fields) . ' |' . PHP_EOL;
+                $output[] = '| '.implode(' | ', $fields).' |'.PHP_EOL;
             }
             $output[] = PHP_EOL;
         }
 
-        $schema = join('', $output);
+        $schema = implode('', $output);
         $stub = $this->getStub();
-        $database_config = config('database.connections.' . $this->database_connection);
+        $database_config = config('database.connections.'.$this->database_connection);
         $host = isset($database_config['host']) ? $database_config['host'] : null;
         $port = isset($database_config['port']) ? $database_config['port'] : null;
+
         return str_replace([
-                'APP_NAME',
-                'DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE',
-                'SCHEMA_CONTENT',
-            ], [
-                config('app.name'),
-                $this->database_connection, $host, $port, $database_config['database'],
-                $schema,
-            ], $stub);
+            'APP_NAME',
+            'DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE',
+            'SCHEMA_CONTENT',
+        ], [
+            config('app.name'),
+            $this->database_connection, $host, $port, $database_config['database'],
+            $schema,
+        ], $stub);
     }
 
     private function getStub()
@@ -63,8 +63,8 @@ class Markdown
     {
         Storage::disk($this->getDisk())
             ->put(
-                config('app.name') . ' Database Schema.md', 
+                config('app.name').' Database Schema.md',
                 $this->getContents()
-        );
+            );
     }
 }

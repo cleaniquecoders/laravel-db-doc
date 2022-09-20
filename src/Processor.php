@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Bekwoh\LaravelDbDoc;
 
@@ -8,15 +8,15 @@ use Illuminate\Support\Facades\DB;
 class Processor
 {
     protected array $data;
-    
+
     public function __construct()
     {
-        logger()->info('Start processing at ' . now()->format('Y-m-d H:i:s'));
+        logger()->info('Start processing at '.now()->format('Y-m-d H:i:s'));
     }
 
     public function __destruct()
     {
-        logger()->info('End processing at ' . now()->format('Y-m-d H:i:s'));
+        logger()->info('End processing at '.now()->format('Y-m-d H:i:s'));
     }
 
     public static function make()
@@ -31,7 +31,6 @@ class Processor
 
     public function render()
     {
-
     }
 
     public function connect(string $connection, string $format): self

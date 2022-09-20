@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Bekwoh\LaravelDbDoc\Presentation;
 
@@ -8,7 +8,6 @@ class Json
 {
     public function __construct(protected array $contents)
     {
-        
     }
 
     public function getDisk()
@@ -25,7 +24,7 @@ class Json
     {
         Storage::disk($this->getDisk())
             ->put(
-                config('app.name') . ' Database Schema.json', 
+                config('app.name').' Database Schema.json',
                 $this->getContents(),
             );
     }

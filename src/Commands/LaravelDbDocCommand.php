@@ -4,16 +4,20 @@ namespace App\Console\Commands\Db;
 
 use Bekwoh\LaravelDbDoc\Processor;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 class LaravelDbDocCommand extends Command
 {
     public $database_connection;
+
     public $format;
+
     public $connection;
+
     public $schema;
+
     public $tables;
+
     public $collections = [];
 
     /**
@@ -22,6 +26,7 @@ class LaravelDbDocCommand extends Command
      * @var string
      */
     public $output_path;
+
     /**
      * The name and signature of the console command.
      *
@@ -45,7 +50,7 @@ class LaravelDbDocCommand extends Command
     {
         Processor::make()
             ->connect(
-                $this->option('database') ?? config('database.default'), 
+                $this->option('database') ?? config('database.default'),
                 $this->option('format')
             )
             ->process()
@@ -63,19 +68,19 @@ class LaravelDbDocCommand extends Command
             $foreignKeys = collect($schema->listTableForeignKeys($table))->keyBy(function ($foreignColumn) {
                 return $foreignColumn->getLocalColumns()[0];
             });
-            $this->info('Table: ' . $table);
+            $this->info('Table: '.$table);
             foreach ($columns as $column) {
                 $columnName = $column->getName();
                 $columnType = $column->getType()->getName();
                 if (isset($foreignKeys[$columnName])) {
                     $foreignColumn = $foreignKeys[$columnName];
                     $foreignTable = $foreignColumn->getForeignTableName();
-                    $columnType = 'FK -> ' . $foreignTable;
+                    $columnType = 'FK -> '.$foreignTable;
                 }
                 $length = $column->getLength();
 
                 $details['column'] = $columnName;
-                $details['type'] = $columnType . $this->determineUnsigned($column);
+                $details['type'] = $columnType.$this->determineUnsigned($column);
                 $details['length'] = $length != 0 ? $length : null;
                 $details['default'] = $this->getDefaultValue($column);
                 $details['nullable'] = $this->getExpression(true === ! $column->getNotNull());
@@ -100,7 +105,7 @@ class LaravelDbDocCommand extends Command
         }
         $filename = $rendered['filename'];
         $output = $rendered['output'];
-        $path = $this->output_path . DIRECTORY_SEPARATOR . $filename;
+        $path = $this->output_path.DIRECTORY_SEPARATOR.$filename;
         if (file_exists($path)) {
             unlink($path);
         }
@@ -141,7 +146,7 @@ class LaravelDbDocCommand extends Command
 
         return [
             'output' => json_encode($collections),
-            'filename' => config('app.name') . ' Database Schema.json',
+            'filename' => config('app.name').' Database Schema.json',
         ];
     }
 
@@ -151,35 +156,35 @@ class LaravelDbDocCommand extends Command
         $output = [];
         foreach ($collections as $table => $properties) {
             $table = preg_replace('/[^A-Za-z0-9]/', ' ', $table);
-            $output[] = '### ' . Str::title($table) . PHP_EOL . PHP_EOL;
-            $output[] = '| Column | Type | Length | Default | Nullable | Comment |' . PHP_EOL;
-            $output[] = '|--------|------|--------|---------|----------|---------|' . PHP_EOL;
+            $output[] = '### '.Str::title($table).PHP_EOL.PHP_EOL;
+            $output[] = '| Column | Type | Length | Default | Nullable | Comment |'.PHP_EOL;
+            $output[] = '|--------|------|--------|---------|----------|---------|'.PHP_EOL;
             foreach ($properties as $key => $value) {
                 $fields = [];
                 foreach ($value as $k => $v) {
                     $fields[] = "{$v}";
                 }
-                $output[] = '| ' . join(' | ', $fields) . ' |' . PHP_EOL;
+                $output[] = '| '.implode(' | ', $fields).' |'.PHP_EOL;
             }
             $output[] = PHP_EOL;
         }
 
-        $schema = join('', $output);
+        $schema = implode('', $output);
         $stub = $this->getStub();
-        $database_config = config('database.connections.' . $this->database_connection);
+        $database_config = config('database.connections.'.$this->database_connection);
         $host = isset($database_config['host']) ? $database_config['host'] : null;
         $port = isset($database_config['port']) ? $database_config['port'] : null;
         $output = str_replace([
-                'APP_NAME',
-                'DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE',
-                'SCHEMA_CONTENT',
-            ], [
-                config('app.name'),
-                $this->database_connection, $host, $port, $database_config['database'],
-                $schema,
-            ], $stub);
+            'APP_NAME',
+            'DB_CONNECTION', 'DB_HOST', 'DB_PORT', 'DB_DATABASE',
+            'SCHEMA_CONTENT',
+        ], [
+            config('app.name'),
+            $this->database_connection, $host, $port, $database_config['database'],
+            $schema,
+        ], $stub);
 
-        $filename = config('app.name') . ' Database Schema.md';
+        $filename = config('app.name').' Database Schema.md';
 
         return [
             'output' => $output,
