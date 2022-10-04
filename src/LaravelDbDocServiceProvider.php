@@ -23,7 +23,7 @@ class LaravelDbDocServiceProvider extends PackageServiceProvider
             ->hasCommand(LaravelDbDocCommand::class);
     }
 
-    public function bootingPackage()
+    public function packageBooted()
     {
         LaravelDbDoc::routes();
     }
