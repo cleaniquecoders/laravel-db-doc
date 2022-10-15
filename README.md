@@ -19,6 +19,14 @@ You can install the package via composer:
 composer require bekwoh/laravel-db-doc
 ```
 
+Add the following in your route file:
+
+```php
+use Bekwoh\LaravelMediaSecure\LaravelDbDoc;
+
+LaravelDbDoc::routes();
+```
+
 You can publish and run the migrations with:
 
 ```bash

@@ -10,26 +10,24 @@ class LaravelDbDoc
 {
     public static function routes()
     {
-        if (app()->environment() != 'production') {
-            Route::get('doc/db-schema', function () {
-                $format = request()->query('format', 'markdown');
-                $content = self::content($format);
+        Route::get('doc/db-schema', function () {
+            $format = request()->query('format', 'markdown');
+            $content = self::content($format);
 
-                if ($format == 'json') {
-                    return response()->json([
-                        'content' => json_decode($content),
-                    ]);
-                }
-
-                return view('laravel-db-doc::markdown', [
-                    'content' => Str::markdown(
-                        $content
-                    ),
+            if ($format == 'json') {
+                return response()->json([
+                    'content' => json_decode($content),
                 ]);
-            })->middleware(
-                config('db-doc.middleware')
-            )->name('doc.db-schema');
-        }
+            }
+
+            return view('laravel-db-doc::markdown', [
+                'content' => Str::markdown(
+                    $content
+                ),
+            ]);
+        })->middleware(
+            config('db-doc.middleware')
+        )->name('doc.db-schema');
     }
 
     public static function content($format)
