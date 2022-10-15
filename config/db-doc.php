@@ -19,4 +19,7 @@ return [
             'view' => null,
         ],
     ],
+    'middleware' => [
+        'auth',
+    ],
 ];

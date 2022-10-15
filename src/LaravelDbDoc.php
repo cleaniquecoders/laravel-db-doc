@@ -12,8 +12,6 @@ class LaravelDbDoc
     {
         if (app()->environment() != 'production') {
             Route::get('doc/db-schema', function () {
-                // Todo: define role
-
                 $format = request()->query('format', 'markdown');
                 $content = self::content($format);
 
@@ -28,7 +26,9 @@ class LaravelDbDoc
                         $content
                     ),
                 ]);
-            })->middleware('auth', 'verified')->name('doc.db-schema');
+            })->middleware(
+                config('db-doc.middleware')
+            )->name('doc.db-schema');
         }
     }
 
