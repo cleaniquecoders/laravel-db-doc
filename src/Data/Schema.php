@@ -43,7 +43,7 @@ class Schema
                 $details['default'] = $this->getDefaultValue($column);
                 $details['nullable'] = $this->getExpression(true === ! $column->getNotNull());
                 $details['comment'] = $column->getComment();
-                
+
                 $this->collections[$table][] = $details;
             }
         }
