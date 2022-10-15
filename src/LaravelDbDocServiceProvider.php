@@ -18,7 +18,7 @@ class LaravelDbDocServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel-db-doc')
             ->hasConfigFile()
-            ->hasViews()
+            ->hasViews('laravel-db-doc')
             ->hasCommand(LaravelDbDocCommand::class);
     }
 }
