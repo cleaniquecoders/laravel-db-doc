@@ -5,10 +5,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;
 
-beforeEach(function () {
-    LaravelDbDoc::routes();
-});
-
 it('has db:schema command', function () {
     $this->assertTrue(in_array('db:schema', array_keys(Artisan::all())));
 });
@@ -35,4 +31,4 @@ it('has doc/db-schema route', function () {
     $this->assertTrue(
         Route::has('doc.db-schema')
     );
-})->markTestSkipped('Somehow the test did not find the router.');
+});
