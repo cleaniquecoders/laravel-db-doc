@@ -25,7 +25,7 @@ class LaravelDbDoc
 
                 return response($content, 200, [
                     'Content-Type' => 'text/csv',
-                    'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+                    'Content-Disposition' => 'attachment; filename="'.$filename.'"',
                 ]);
             }
 
@@ -58,9 +58,9 @@ class LaravelDbDoc
         throw_if(! in_array($format, ['json', 'markdown', 'csv']));
 
         $extension = match ($format) {
-             'markdown' => 'md',
-             'csv' => 'csv',
-             default => 'json',
+            'markdown' => 'md',
+            'csv' => 'csv',
+            default => 'json',
         };
 
         return config('app.name')." Database Schema.$extension";

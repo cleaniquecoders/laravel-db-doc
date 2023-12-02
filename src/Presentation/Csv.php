@@ -3,7 +3,6 @@
 namespace Bekwoh\LaravelDbDoc\Presentation;
 
 use Bekwoh\LaravelDbDoc\Contracts\Presenter;
-use Illuminate\Support\Str;
 
 class Csv extends AbstractPresenter implements Presenter
 {

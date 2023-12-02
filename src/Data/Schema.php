@@ -41,7 +41,7 @@ class Schema
                 $details['type'] = $columnType.$this->determineUnsigned($column);
                 $details['length'] = $length != 0 ? $length : null;
                 $details['default'] = $this->getDefaultValue($column);
-                $details['nullable'] = $this->getExpression(true === ! $column->getNotNull());
+                $details['nullable'] = $this->getExpression(! $column->getNotNull() === true);
                 $details['comment'] = $column->getComment();
 
                 $this->collections[$table][] = $details;
@@ -53,12 +53,12 @@ class Schema
 
     private function determineUnsigned($column)
     {
-        return (true === $column->getUnsigned()) ? '(unsigned)' : '';
+        return ($column->getUnsigned() === true) ? '(unsigned)' : '';
     }
 
     private function getDefaultValue($column)
     {
-        if ('boolean' == $column->getType()->getName()) {
+        if ($column->getType()->getName() == 'boolean') {
             return $column->getDefault() ? 'true' : 'false';
         }
 

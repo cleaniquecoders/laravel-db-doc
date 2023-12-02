@@ -3,7 +3,6 @@
 namespace Bekwoh\LaravelDbDoc\Presentation;
 
 use Bekwoh\LaravelDbDoc\Contracts\Presenter;
-use Illuminate\Support\Str;
 
 class Markdown extends AbstractPresenter implements Presenter
 {
