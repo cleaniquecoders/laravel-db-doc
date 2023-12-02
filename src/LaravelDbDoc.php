@@ -21,7 +21,7 @@ class LaravelDbDoc
             }
 
             if ($format == 'csv') {
-                $filename = date('Ymd').self::filename($format);
+                $filename = date('Ymd').'-'.self::filename($format);
 
                 return response($content, 200, [
                     'Content-Type' => 'text/csv',

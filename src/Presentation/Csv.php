@@ -30,7 +30,7 @@ class Csv extends AbstractPresenter implements Presenter
             $output[] = PHP_EOL;
         }
 
-        $schema = implode('', $output);
+        $schema = implode(PHP_EOL, $output);
         $stub = $this->getStub();
         $database_config = config('database.connections.'.$this->connection);
         $host = isset($database_config['host']) ? $database_config['host'] : null;
@@ -45,5 +45,14 @@ class Csv extends AbstractPresenter implements Presenter
             $this->connection, $host, $port, $database_config['database'],
             $schema,
         ], $stub);
+    }
+
+    public function getStub()
+    {
+        $path = file_exists(
+            base_path('stubs/db-doc-csv.stub')
+        ) ? base_path('stubs/db-doc-csv.stub') : __DIR__.'/../../stubs/db-doc-csv.stub';
+
+        return file_get_contents($path);
     }
 }
