@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.2.1 - 2023-12-02
+
+**Full Changelog**: https://github.com/bekwoh/laravel-db-doc/compare/1.2.0...1.2.1
+
 ## 1.2.0 - 2023-12-02
 
 ### What's Changed
