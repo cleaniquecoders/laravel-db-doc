@@ -17,8 +17,7 @@ class Markdown extends AbstractPresenter implements Presenter
         $contents = $this->contents;
         $output = [];
         foreach ($contents as $table => $properties) {
-            $table = preg_replace('/[^A-Za-z0-9]/', ' ', $table);
-            $output[] = '### '.Str::title($table).PHP_EOL.PHP_EOL;
+            $output[] = '### '.$table.PHP_EOL.PHP_EOL;
             $output[] = '| Column | Type | Length | Default | Nullable | Comment |'.PHP_EOL;
             $output[] = '|--------|------|--------|---------|----------|---------|'.PHP_EOL;
             foreach ($properties as $key => $value) {
