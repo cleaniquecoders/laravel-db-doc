@@ -20,6 +20,15 @@ class LaravelDbDoc
                 ]);
             }
 
+            if ($format == 'csv') {
+                $filename = date('Ymd').self::filename($format);
+
+                return response($content, 200, [
+                    'Content-Type' => 'text/csv',
+                    'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+                ]);
+            }
+
             return view('laravel-db-doc::markdown', [
                 'content' => Str::markdown(
                     $content
@@ -32,23 +41,27 @@ class LaravelDbDoc
 
     public static function content($format)
     {
-        throw_if(! in_array($format, ['json', 'markdown']));
+        throw_if(! in_array($format, ['json', 'markdown', 'csv']));
 
         return Storage::disk(self::disk($format))->get(self::filename($format));
     }
 
     public static function disk($format)
     {
-        throw_if(! in_array($format, ['json', 'markdown']));
+        throw_if(! in_array($format, ['json', 'markdown', 'csv']));
 
         return config("db-doc.presentations.$format.disk");
     }
 
     public static function filename($format)
     {
-        throw_if(! in_array($format, ['json', 'markdown']));
+        throw_if(! in_array($format, ['json', 'markdown', 'csv']));
 
-        $extension = $format != 'markdown' ? 'json' : 'md';
+        $extension = match ($format) {
+             'markdown' => 'md',
+             'csv' => 'csv',
+             default => 'json',
+        };
 
         return config('app.name')." Database Schema.$extension";
     }

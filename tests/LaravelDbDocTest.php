@@ -27,6 +27,15 @@ it('can generate db doc schema - json', function () {
     );
 });
 
+it('can generate db doc schema - csv', function () {
+    Artisan::call('db:schema --format=csv');
+
+    $this->assertTrue(
+        Storage::disk(LaravelDbDoc::disk('csv'))
+            ->exists(LaravelDbDoc::filename('csv'))
+    );
+});
+
 it('has doc/db-schema route', function () {
     $this->assertTrue(
         Route::has('doc.db-schema')
