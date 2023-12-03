@@ -1,6 +1,6 @@
 <?php
 
-use Bekwoh\LaravelDbDoc\LaravelDbDoc;
+use CleaniqueCoders\LaravelDbDoc\LaravelDbDoc;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc;
+namespace CleaniqueCoders\LaravelDbDoc;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Storage;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc\Contracts;
+namespace CleaniqueCoders\LaravelDbDoc\Contracts;
 
 interface Presenter
 {

@@ -1,9 +1,9 @@
 # Generate Database Schema Documentation
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/bekwoh/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/bekwoh/laravel-db-doc)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/bekwoh/laravel-db-doc/run-tests?label=tests)](https://github.com/bekwoh/laravel-db-doc/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/bekwoh/laravel-db-doc/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/bekwoh/laravel-db-doc/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/bekwoh/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/bekwoh/laravel-db-doc)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/cleaniquecoders/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/cleaniquecoders/laravel-db-doc)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/cleaniquecoders/laravel-db-doc/run-tests?label=tests)](https://github.com/cleaniquecoders/laravel-db-doc/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/cleaniquecoders/laravel-db-doc/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/cleaniquecoders/laravel-db-doc/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/cleaniquecoders/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/cleaniquecoders/laravel-db-doc)
 
 A package to provide you easy way to generate Markdown / JSON format of database schema. Viewable in non-production environment at your `http://domain.com/doc/db-schema`.
 
@@ -16,13 +16,13 @@ A package to provide you easy way to generate Markdown / JSON format of database
 You can install the package via composer:
 
 ```bash
-composer require bekwoh/laravel-db-doc
+composer require cleaniquecoders/laravel-db-doc
 ```
 
 Add the following in your route file:
 
 ```php
-use Bekwoh\LaravelMediaSecure\LaravelDbDoc;
+use CleaniqueCoders\LaravelMediaSecure\LaravelDbDoc;
 
 LaravelDbDoc::routes();
 ```
@@ -50,7 +50,7 @@ php artisan vendor:publish --tag="laravel-db-doc-views"
 To generate database schema in Markdown format:
 
 ```php
-php artisan db:schema 
+php artisan db:schema
 ```
 
 To generate database schema in JSON format:

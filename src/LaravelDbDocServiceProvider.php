@@ -1,8 +1,8 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc;
+namespace CleaniqueCoders\LaravelDbDoc;
 
-use Bekwoh\LaravelDbDoc\Commands\LaravelDbDocCommand;
+use CleaniqueCoders\LaravelDbDoc\Commands\LaravelDbDocCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

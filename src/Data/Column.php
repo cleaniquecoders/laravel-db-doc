@@ -1,6 +1,6 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc\Data;
+namespace CleaniqueCoders\LaravelDbDoc\Data;
 
 class Column
 {
