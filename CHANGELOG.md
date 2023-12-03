@@ -2,6 +2,20 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.3.0 - 2023-12-03
+
+Migrate from Bekwoh to Cleanique Coders
+
+### What's Changed
+
+* Update Root Namespace by @nasrulhazim in https://github.com/cleaniquecoders/laravel-db-doc/pull/13
+
+### New Contributors
+
+* @nasrulhazim made their first contribution in https://github.com/cleaniquecoders/laravel-db-doc/pull/13
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.2.1...1.3.0
+
 ## 1.2.1 - 2023-12-02
 
 **Full Changelog**: https://github.com/bekwoh/laravel-db-doc/compare/1.2.0...1.2.1
