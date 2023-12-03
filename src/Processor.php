@@ -1,9 +1,9 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc;
+namespace CleaniqueCoders\LaravelDbDoc;
 
-use Bekwoh\LaravelDbDoc\Contracts\Presenter;
-use Bekwoh\LaravelDbDoc\Data\Schema;
+use CleaniqueCoders\LaravelDbDoc\Contracts\Presenter;
+use CleaniqueCoders\LaravelDbDoc\Data\Schema;
 use Illuminate\Support\Facades\DB;
 
 class Processor

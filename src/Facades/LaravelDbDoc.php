@@ -1,16 +1,16 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc\Facades;
+namespace CleaniqueCoders\LaravelDbDoc\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \Bekwoh\LaravelDbDoc\LaravelDbDoc
+ * @see \CleaniqueCoders\LaravelDbDoc\LaravelDbDoc
  */
 class LaravelDbDoc extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return \Bekwoh\LaravelDbDoc\LaravelDbDoc::class;
+        return \CleaniqueCoders\LaravelDbDoc\LaravelDbDoc::class;
     }
 }

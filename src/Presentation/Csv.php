@@ -1,8 +1,8 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc\Presentation;
+namespace CleaniqueCoders\LaravelDbDoc\Presentation;
 
-use Bekwoh\LaravelDbDoc\Contracts\Presenter;
+use CleaniqueCoders\LaravelDbDoc\Contracts\Presenter;
 
 class Csv extends AbstractPresenter implements Presenter
 {

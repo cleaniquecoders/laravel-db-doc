@@ -1,8 +1,8 @@
 <?php
 
-namespace Bekwoh\LaravelDbDoc\Commands;
+namespace CleaniqueCoders\LaravelDbDoc\Commands;
 
-use Bekwoh\LaravelDbDoc\Processor;
+use CleaniqueCoders\LaravelDbDoc\Processor;
 use Illuminate\Console\Command;
 
 class LaravelDbDocCommand extends Command

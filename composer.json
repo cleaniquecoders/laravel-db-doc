@@ -1,12 +1,12 @@
 {
-    "name": "bekwoh/laravel-db-doc",
+    "name": "cleaniquecoders/laravel-db-doc",
     "description": "Generate Database Schema Documentation",
     "keywords": [
-        "bekwoh",
+        "cleaniquecoders",
         "laravel",
         "laravel-db-doc"
     ],
-    "homepage": "https://github.com/bekwoh/laravel-db-doc",
+    "homepage": "https://github.com/cleaniquecoders/laravel-db-doc",
     "license": "MIT",
     "authors": [
         {
@@ -35,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Bekwoh\\LaravelDbDoc\\": "src",
-            "Bekwoh\\LaravelDbDoc\\Database\\Factories\\": "database/factories"
+            "CleaniqueCoders\\LaravelDbDoc\\": "src",
+            "CleaniqueCoders\\LaravelDbDoc\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Bekwoh\\LaravelDbDoc\\Tests\\": "tests"
+            "CleaniqueCoders\\LaravelDbDoc\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -60,10 +60,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Bekwoh\\LaravelDbDoc\\LaravelDbDocServiceProvider"
+                "CleaniqueCoders\\LaravelDbDoc\\LaravelDbDocServiceProvider"
             ],
             "aliases": {
-                "LaravelDbDoc": "Bekwoh\\LaravelDbDoc\\Facades\\LaravelDbDoc"
+                "LaravelDbDoc": "CleaniqueCoders\\LaravelDbDoc\\Facades\\LaravelDbDoc"
             }
         }
     },
