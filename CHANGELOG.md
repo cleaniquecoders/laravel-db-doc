@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## Added Laravel 11 Support - 2024-03-21
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.2.0 to 2.3.1 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/14
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.3.0...1.4.0
+
 ## 1.3.0 - 2023-12-03
 
 Migrate from Bekwoh to Cleanique Coders
