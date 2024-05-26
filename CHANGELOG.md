@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.4.1 - 2024-05-26
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.3.1 to 2.4 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/17
+* Bump ramsey/composer-install from 1 to 3 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/15
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.1.0 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/18
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.4.0...1.4.1
+
 ## Added Laravel 11 Support - 2024-03-21
 
 ### What's Changed
