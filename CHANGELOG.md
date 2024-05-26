@@ -2,6 +2,10 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.4.2 - 2024-05-26
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.4.1...1.4.2
+
 ## 1.4.1 - 2024-05-26
 
 ### What's Changed
