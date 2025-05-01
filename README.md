@@ -22,21 +22,15 @@ composer require cleaniquecoders/laravel-db-doc
 Add the following in your route file:
 
 ```php
-use CleaniqueCoders\LaravelMediaSecure\LaravelDbDoc;
+use CleaniqueCoders\LaravelDbDoc\LaravelDbDoc;
 
 LaravelDbDoc::routes();
-```
-
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-db-doc-migrations"
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel-db-doc-config"
+php artisan vendor:publish --tag="db-doc-config"
 ```
 
 Optionally, you can publish the views using
