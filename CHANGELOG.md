@@ -2,6 +2,16 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## Added Laravel 12 and PHP 8.4 Support - 2025-05-01
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/19
+* Bump dependabot/fetch-metadata from 2.2.0 to 2.3.0 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/20
+* Bump aglipanci/laravel-pint-action from 2.4 to 2.5 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/21
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.4.1...1.5.0
+
 ## 1.4.2 - 2024-05-26
 
 **Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.4.1...1.4.2
