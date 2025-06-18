@@ -2,6 +2,15 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.5.1 - 2025-06-18
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.3.0 to 2.4.0 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/22
+* Bump stefanzweifel/git-auto-commit-action from 4 to 6 by @dependabot in https://github.com/cleaniquecoders/laravel-db-doc/pull/23
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.5.0...1.5.1
+
 ## Added Laravel 12 and PHP 8.4 Support - 2025-05-01
 
 ### What's Changed
