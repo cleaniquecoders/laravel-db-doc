@@ -32,7 +32,7 @@ class Processor
 
     public static function make()
     {
-        return new self();
+        return new self;
     }
 
     public function process()

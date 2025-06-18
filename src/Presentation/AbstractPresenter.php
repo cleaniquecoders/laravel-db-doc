@@ -12,9 +12,7 @@ abstract class AbstractPresenter implements Presenter
 
     abstract public function getContents();
 
-    public function __construct(protected array $contents)
-    {
-    }
+    public function __construct(protected array $contents) {}
 
     public function getDisk()
     {

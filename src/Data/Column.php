@@ -2,6 +2,4 @@
 
 namespace CleaniqueCoders\LaravelDbDoc\Data;
 
-class Column
-{
-}
+class Column {}

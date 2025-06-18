@@ -6,9 +6,7 @@ class Schema
 {
     protected array $collections;
 
-    public function __construct(protected $tables, protected $schema)
-    {
-    }
+    public function __construct(protected $tables, protected $schema) {}
 
     public static function make($tables, $schema)
     {

@@ -2,6 +2,4 @@
 
 namespace CleaniqueCoders\LaravelDbDoc\Data;
 
-class Table
-{
-}
+class Table {}
