@@ -1,8 +1,8 @@
 # Generate Database Schema Documentation
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/cleaniquecoders/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/cleaniquecoders/laravel-db-doc)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/cleaniquecoders/laravel-db-doc/run-tests?label=tests)](https://github.com/cleaniquecoders/laravel-db-doc/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/cleaniquecoders/laravel-db-doc/Fix%20PHP%20code%20style%20issues?label=code%20style)](https://github.com/cleaniquecoders/laravel-db-doc/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
+[![run-tests](https://github.com/cleaniquecoders/laravel-db-doc/actions/workflows/run-tests.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-db-doc/actions/workflows/run-tests.yml)
+[![Fix PHP code style issues](https://github.com/cleaniquecoders/laravel-db-doc/actions/workflows/fix-styling.yml/badge.svg)](https://github.com/cleaniquecoders/laravel-db-doc/actions/workflows/fix-styling.yml)
 [![Total Downloads](https://img.shields.io/packagist/dt/cleaniquecoders/laravel-db-doc.svg?style=flat-square)](https://packagist.org/packages/cleaniquecoders/laravel-db-doc)
 
 A package to provide you easy way to generate Markdown / JSON format of database schema. Viewable in non-production environment at your `http://domain.com/doc/db-schema`.
