@@ -58,9 +58,21 @@ class Processor
 
         throw_if(! class_exists($this->presenter), 'RuntimeException', "$this->presenter not exists.");
 
-        $this->connection = DB::connection($this->database_connection)->getDoctrineConnection();
-        $this->schema = $this->connection->createSchemaManager();
-        $this->tables = $this->schema->listTableNames();
+        $this->connection = DB::connection($this->database_connection);
+
+        if (method_exists($this->connection, 'getDoctrineConnection')) {
+            $this->connection = $this->connection->getDoctrineConnection();
+            $this->schema = $this->connection->createSchemaManager();
+            $this->tables = $this->schema->listTableNames();
+        } else {
+            $schemaBuilder = $this->connection->getSchemaBuilder();
+            $tables = method_exists($schemaBuilder, 'getTables')
+                ? $schemaBuilder->getTables()
+                : [];
+
+            $this->tables = array_column($tables, 'name');
+            $this->schema = $schemaBuilder;
+        }
 
         return $this;
     }
