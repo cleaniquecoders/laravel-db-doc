@@ -45,7 +45,8 @@ class Schema
                         : data_get($foreignColumn, 'foreign_table');
                     $columnType = 'FK -> '.$foreignTable;
                 }
-                $length = is_object($column) && method_exists($column, 'getLength') ? $column->getLength() : count($columns);
+
+                $length = is_object($column) && method_exists($column, 'getLength') ? $column->getLength() : $this->extractNumber(data_get($column, 'type'));
 
                 $details['column'] = $columnName;
                 $details['type'] = $columnType.$this->determineUnsigned($column);
@@ -65,6 +66,13 @@ class Schema
         }
 
         return $this->collections;
+    }
+
+    private function extractNumber(string $type): ?int
+    {
+        preg_match('/\d+/', $type, $matches);
+
+        return ! empty($matches) ? (int) $matches[0] : null;
     }
 
     private function determineUnsigned($column)
