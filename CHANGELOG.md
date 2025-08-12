@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.5.4 - 2025-08-12
+
+### What's Changed
+
+* Bump aglipanci/laravel-pint-action from 2.5 to 2.6 by @dependabot[bot] in https://github.com/cleaniquecoders/laravel-db-doc/pull/24
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.5.3...1.5.4
+
 ## 1.5.3 - 2025-06-18
 
 **Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.5.2...1.5.3
