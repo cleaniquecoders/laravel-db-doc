@@ -2,6 +2,24 @@
 
 All notable changes to `laravel-db-doc` will be documented in this file.
 
+## 1.6.0 - 2026-03-30
+
+### What's Changed
+
+#### Added
+
+- Laravel 13 support (`illuminate/contracts: ^13.0`)
+- PHPUnit 12 compatibility
+- Pest 4 support
+
+#### Changed
+
+- Updated `phpunit.xml.dist` — removed deprecated PHPUnit 10 attributes
+- Updated CI workflow for Laravel 12 matrix
+- Updated dev dependencies (larastan ^3.0, phpstan plugins ^2.0)
+
+**Full Changelog**: https://github.com/cleaniquecoders/laravel-db-doc/compare/1.5.4...1.6.0
+
 ## 1.5.4 - 2025-08-12
 
 ### What's Changed
